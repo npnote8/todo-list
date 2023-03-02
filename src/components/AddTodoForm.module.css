@@ -1,0 +1,16 @@
+.buttonAdd {
+  cursor: pointer;
+  transition: all 0.1s ease-in;
+  color: white;
+  background: #333333;
+  padding: 1rem;
+  border: 1px solid #333333;
+  border-radius: 10px;
+}
+.submitForm {
+  /* display: inline-flex; */
+  border-radius: 10px;
+  overflow: hidden;
+  align-items: baseline;
+  margin: 40px;
+}

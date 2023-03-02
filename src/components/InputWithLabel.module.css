@@ -1,0 +1,10 @@
+.searchBox {
+  background: transparent;
+  border: 0;
+  padding: 0.8rem;
+}
+.label {
+  padding: 0.8rem;
+  font-size: 18px;
+  font-family: "Jua", sans-serif;
+}

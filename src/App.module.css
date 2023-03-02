@@ -1,0 +1,22 @@
+@import url("https://fonts.googleapis.com/css?family=Josefin+Sans");
+@import url("https://fonts.googleapis.com/css2?family=Calistoga&family=Fredoka+One&family=Waiting+for+the+Sunrise&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Calistoga&family=Fredoka+One&family=Jua&family=Waiting+for+the+Sunrise&display=swap");
+
+.container {
+  height: 100vw;
+  padding: 20px;
+
+  background: rgb(213, 212, 212);
+  text-align: center;
+}
+h1 {
+  font-size: 48px;
+  font-weight: 400;
+  letter-spacing: 1px;
+  font-family: "Fredoka One", cursive;
+}
+h2 {
+  font-size: 25px;
+  font-weight: 100;
+  font-family: "Jua", sans-serif;
+}
