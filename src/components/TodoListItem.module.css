@@ -1,0 +1,23 @@
+.buttonRemove:hover {
+  background: white;
+}
+.buttonRemove {
+  display: block;
+  cursor: pointer;
+  transition: all 0.1s ease-in;
+  background: #edf907;
+  color: #171212;
+  padding: 10px;
+  border: 2px solid #edf907;
+  border-radius: 10px;
+  margin: 20px auto;
+}
+.buttonImportant {
+  display: inline;
+  cursor: pointer;
+  transition: all 0.1s ease-in;
+  padding: 10px;
+  border: 2px solid #f00e16;
+  border-radius: 10px;
+  margin: 20px auto;
+}
