@@ -3,7 +3,7 @@ import TodoListItem from "./TodoListItem";
 import PropTypes from "prop-types";
 import moment from "moment";
 
-const TodoListOutdated = ({ todoList, onRemoveTodo, onImportantTodo }) => {
+const TodoListOutdated = ({ todoList, onRemoveTodo, onUpdateTodo }) => {
   const tableRows = todoList.map((item) => {
     if (moment(item.fields.DueDate).diff(moment(), "days") < 0) {
       return (
@@ -11,7 +11,7 @@ const TodoListOutdated = ({ todoList, onRemoveTodo, onImportantTodo }) => {
           key={item.id}
           item={item}
           onRemoveTodo={onRemoveTodo}
-          onImportantTodo={onImportantTodo}
+          onUpdateTodo={onUpdateTodo}
         />
       );
     } else {
@@ -25,6 +25,7 @@ const TodoListOutdated = ({ todoList, onRemoveTodo, onImportantTodo }) => {
           <th>Title</th>
           <th>Due Date</th>
           <th>Days Left</th>
+          <th>Important</th>
           <th></th>
           <th></th>
         </tr>
@@ -36,7 +37,7 @@ const TodoListOutdated = ({ todoList, onRemoveTodo, onImportantTodo }) => {
 TodoListOutdated.propTypes = {
   todoList: PropTypes.array,
   onRemoveTodo: PropTypes.func,
-  onImportantTodo: PropTypes.func,
+  onUpdateTodo: PropTypes.func,
 };
 
 export default TodoListOutdated;

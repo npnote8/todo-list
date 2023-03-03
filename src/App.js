@@ -152,7 +152,7 @@ function App() {
                     todoList={todoList}
                     setTodoList={setTodoList}
                     onRemoveTodo={removeTodo}
-                    onImportantTodo={updateTodo}
+                    onUpdateTodo={updateTodo}
                   />
                 )}
               </div>
@@ -168,7 +168,8 @@ function App() {
                 <TodoListOutdated
                   todoList={todoList}
                   onRemoveTodo={removeTodo}
-                  onImportantTodo={updateTodo}
+                  onUpdateTodo={updateTodo}
+                  
                 />
               </div>
             </Fragment>
