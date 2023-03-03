@@ -7,7 +7,7 @@ import ButtonSortDate from "./ButtonSortDate";
 import ButtonSortDays from "./ButtonSortDays";
 import moment from "moment";
 
-const TodoList = ({ todoList, onRemoveTodo, setTodoList, onImportantTodo }) => {
+const TodoList = ({ todoList, onRemoveTodo, setTodoList, onUpdateTodo }) => {
   const tableRows = todoList.map((item) => {
     if (moment(item.fields.DueDate).diff(moment(), "days") >= 0) {
       return (
@@ -15,7 +15,7 @@ const TodoList = ({ todoList, onRemoveTodo, setTodoList, onImportantTodo }) => {
           key={item.id}
           item={item}
           onRemoveTodo={onRemoveTodo}
-          onImportantTodo={onImportantTodo}
+          onUpdateTodo={onUpdateTodo}
         />
       );
     } else {
@@ -47,6 +47,7 @@ const TodoList = ({ todoList, onRemoveTodo, setTodoList, onImportantTodo }) => {
             </th>
             <th>Important</th>
             <th></th>
+            <th></th>
           </tr>
         </thead>
         <tbody>{tableRows}</tbody>
@@ -58,6 +59,6 @@ TodoList.propTypes = {
   todoList: PropTypes.array,
   onRemoveTodo: PropTypes.func,
   setTodoList: PropTypes.func,
-  onImportantTodo: PropTypes.func,
+  onUpdateTodo: PropTypes.func,
 };
 export default TodoList;
