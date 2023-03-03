@@ -25,6 +25,7 @@ const TodoListOutdated = ({ todoList, onRemoveTodo, onUpdateTodo }) => {
           <th>Title</th>
           <th>Due Date</th>
           <th>Days Left</th>
+          <th>Important</th>
           <th></th>
           <th></th>
         </tr>

@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import style from "./TodoListItem.module.css";
 import PropTypes from "prop-types";
 import moment from "moment";
+import { debounce } from "lodash";
 
 const TodoListItem = ({ item, onRemoveTodo, onUpdateTodo }) => {
   const [readOnly, setReadOnly] = useState(true);
@@ -13,32 +14,48 @@ const TodoListItem = ({ item, onRemoveTodo, onUpdateTodo }) => {
 
     return displayDate;
   }; */
+  const calculateDays = () => {
+    return moment(item.fields.DueDate).diff(moment(), "days");
+  };
   const handleImportantClick = () => {
     item.fields.Important = !item.fields.Important;
     onUpdateTodo(item);
   };
   const handleEditClick = () => {
-    const flag = structuredClone(readOnly);
-    setReadOnly(!flag);
-    console.log("readOnly", readOnly);
+    setReadOnly(!readOnly);
   };
+
   const handleSaveClick = () => {
-    console.log("readOnly", readOnly);
     setReadOnly(!readOnly);
     onUpdateTodo(item);
   };
+  const handleInputChange = debounce((e, property) => {
+    item.fields[property] = e.target.value;
+  }, 100);
 
   return (
     <>
       <tr>
         <td>
           {" "}
-          <input type="text" value={item.fields.Title} readonly={readOnly} />
+          <input
+            type="text"
+            defaultValue={item.fields.Title}
+            onKeyUp={(e) => handleInputChange(e, "Title")}
+            readOnly={readOnly}
+            className={style.tableInput}
+          />
         </td>
         <td>
-          <input type="date" value={item.fields.DueDate} readonly={readOnly} />
+          <input
+            type="date"
+            defaultValue={item.fields.DueDate}
+            onChange={(e) => handleInputChange(e, "DueDate")}
+            readOnly={readOnly}
+            className={style.tableInput}
+          />
         </td>
-        <td>{moment(item.fields.DueDate).diff(moment(), "days")}</td>
+        <td>{calculateDays()}</td>
         <td>
           {item.fields.Important === true ? (
             <button
@@ -57,12 +74,20 @@ const TodoListItem = ({ item, onRemoveTodo, onUpdateTodo }) => {
         </td>
         <td>
           {readOnly && (
-            <button type="button" onClick={handleEditClick}>
+            <button
+              type="button"
+              onClick={handleEditClick}
+              className={style.buttonEdit}
+            >
               Edit
             </button>
           )}
           {!readOnly && (
-            <button type="button" onClick={handleSaveClick}>
+            <button
+              type="button"
+              onClick={handleSaveClick}
+              className={style.buttonSave}
+            >
               Save
             </button>
           )}

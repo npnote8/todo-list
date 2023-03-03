@@ -1,6 +1,6 @@
 import { useNavigate } from "react-router-dom";
 import Lottie from "lottie-react";
-import * as logoAnimation from "./logoAnimation.json";
+import * as logoAnimation from "./hello.json";
 import style from "./Homepage.module.css";
 
 const Homepage = () => {
@@ -13,7 +13,7 @@ const Homepage = () => {
     <div className={style.container}>
       <Lottie
         animationData={logoAnimation}
-        loop={false}
+        loop={true}
         style={{
           height: "300px",
           width: "300px",
